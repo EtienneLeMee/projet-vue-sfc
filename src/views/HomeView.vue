@@ -1,23 +1,39 @@
 <template>
   <div class="home">
-    <Header/>
+    <Home/>
   </div>
+  <div class="nav">
+    <Nav/>
+  </div>
+  
   <title>Hogwarts Wiki</title>
 </template>
 
 <script>
 // @ is an alias to /src
-import Header from '@/components/Header.vue'
+import Home from '@/components/Home.vue'
+import Nav from '@/components/Nav.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    Header
+    Home,
+    Nav
   },
   title:'Hog'
 }
 </script>
 
 <style>
+  nav {
+    position: absolute;
+    z-index: 3;
+    right: 0;
+  }
+
+  .home {
+    position: absolute;
+  }
+
 
 </style>
