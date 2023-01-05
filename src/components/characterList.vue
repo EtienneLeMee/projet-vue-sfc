@@ -10,7 +10,7 @@
           <h4>
             <b>{{ character.name }}</b>
           </h4>
-          <a>More</a>
+          <a>Moreless</a>
         </div>
       </div>
     </div>
