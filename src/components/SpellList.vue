@@ -1,28 +1,62 @@
 <template>
-  <div class="SpellList">
-    <h1>{{ msg }}</h1>
-    <p>List of all characters in Harry Potter movies and books.</p>
+  <div class="spellList">
+      <h1>Characters</h1>
+      <p>List of all spells in Harry Potter movies and books.</p>
 
-    <div id="list">
-      <div class="card">
-        <img src={{image}} alt="Image" style="width: 100%" />
-        <div class="container">
-          <h4>
-            <b>{{ name }}</b>
-          </h4>
-          <p>More</p>
+      <div v-for="spell in spells" id="list">
+        <div class="card">
+          <b style="color: chocolate">{{spell.name}}</b>
+          <div class="container">
+            <h4>
+              <b>{{ spell.description }}</b>
+            </h4>
+          </div>
         </div>
       </div>
-    </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+const apiURLSpells = "https://hp-api.onrender.com/api/spells";
+const config = {};
+
 export default {
-  name: 'HelloWorld',
+  name: "spellsList",
   props: {
-    msg: String
-  }
+    msg: String,
+  },
+  data() {
+    return {
+      spells: null,
+    };
+  },
+
+  created: function () {
+    this.fetchDataAsync();
+  },
+
+  methods: {
+    fetchDataAsync: async function () {
+      try {
+        const responseChar = await axios.get(
+            apiURLSpells,
+            config
+        );
+        this.spells = responseChar.data;
+        console.log(responseChar.data)
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    formattedMessage: function (message) {
+      const newline = message.indexOf("\n");
+      return newline > 0 ? message.slice(0, newline) : message;
+    },
+    formattedDate: function (date) {
+      return date.replace(/T|Z/g, " ");
+    },
+  },
 }
 </script>
 
