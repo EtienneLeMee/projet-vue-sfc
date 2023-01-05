@@ -1,6 +1,6 @@
 <template>
   <div class="spellList">
-      <h1>Characters</h1>
+      <h1>Spells</h1>
       <p>List of all spells in Harry Potter movies and books.</p>
 
       <div v-for="spell in spells" id="list">
