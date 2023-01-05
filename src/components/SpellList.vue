@@ -1,19 +1,12 @@
 <template>
-  <div class="spellList">
-      <h1>Characters</h1>
-      <p>List of all spells in Harry Potter movies and books.</p>
-
-      <div v-for="spell in spells" id="list">
-        <div class="card">
-          <b style="color: chocolate">{{spell.name}}</b>
-          <div class="container">
-            <h4>
-              <b>{{ spell.description }}</b>
-            </h4>
-          </div>
+    <div class="wrapper">
+      <div class="container">
+        <div v-for="spell in spells" id="list" class="list">
+          <p class="name">{{spell.name}}</p><br>
+          <p class="desc">{{ spell.description }}</p>
         </div>
       </div>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -62,18 +55,39 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+* {
+  all: unset;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+  .wrapper {
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    margin-top: 100px;
+    width: 90vw;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  .list {
+    width: 200px;
+    height: 130px;
+    background-color: rgb(230, 230, 230);
+    position: relative;
+  }
+
+  .card {
+    
+  }
+
+  .desc {
+    font-size: 10px;
+  }
 </style>
