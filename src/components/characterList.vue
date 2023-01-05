@@ -4,13 +4,16 @@
     <p>List of all characters in Harry Potter movies and books.</p>
 
     <div v-for="character in characters" id="list">
-      <div class="card">
-        <img src={{ character.image }} alt="Image" style="width: 100%" />
+      <div v-if="character.image!==''" class="card">
+        <img :src=character.image alt="Image" style="width: 100%" />
         <div class="container">
           <h4>
             <b>{{ character.name }}</b>
           </h4>
-          <a>Moreless</a>
+          <img v-if="character.house == 'Gryffindor'" src="src/assets/gryffindorLogo.png"/>
+          <img v-if="character.house == 'Slytherin'" src="src/assets/slytherinLogo.png"/>
+          <img v-if="character.house == 'Hufflepuff'" src="src/assets/hufflepuffLogo.png"/>
+          <img v-if="character.house == 'Gryffindor'" src="src/assets/ravenclawLogo.png"/>
         </div>
       </div>
     </div>
@@ -18,8 +21,11 @@
 </template>
 
 <script>
-//import axios from axios;
+import axios from 'axios';
 const apiURLCharacters = "https://hp-api.onrender.com/api/characters";
+const apiURLHouses = "https://hp-api.onrender.com/api/house";
+const config = {};
+
 export default {
   name: "characterList",
   props: {
@@ -28,16 +34,11 @@ export default {
   data() {
     return {
       characters: null,
-      config: {}
     };
   },
 
   created: function () {
     this.fetchDataAsync();
-  },
-
-  watch: {
-    currentType: "fetchDataAsync",
   },
 
   methods: {
@@ -47,13 +48,11 @@ export default {
           apiURLCharacters,
           config
         );
-        this.characters = responseType.data[0];
+        this.characters = responseChar.data;
+        console.log(responseChar.data)
       } catch (error) {
         console.log(error);
       }
-    },
-    makeActive: function (name) {
-      this.currentType = name;
     },
     formattedMessage: function (message) {
       const newline = message.indexOf("\n");
