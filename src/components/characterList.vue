@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import axios from axios;
+//import axios from axios;
 const apiURLCharacters = "https://hp-api.onrender.com/api/characters";
 export default {
   name: "characterList",
@@ -48,7 +48,6 @@ export default {
           config
         );
         this.characters = responseType.data[0];
-        // console.log(self.commits[0].html_url);
       } catch (error) {
         console.log(error);
       }
