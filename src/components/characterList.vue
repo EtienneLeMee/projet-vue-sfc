@@ -4,16 +4,18 @@
     <p>List of all characters in Harry Potter movies and books.</p>
 
     <div v-for="character in characters" id="list">
-      <div v-if="character.image!==''" class="card">
-        <img :src=character.image alt="Image" style="width: 100%" />
+      <div class="card">
+        <img v-if="character.image!==''" :src=character.image alt="Image" style="width: 30%" />
+        <img v-if="character.image=='' && character.gender=='male'" src="../assets/wizzard.png" alt="Image" style="width: 30%" />
+        <img v-if="character.image=='' && character.gender=='female'" src="../assets/wizzardfemale.png" alt="Image" style="width: 30%" />
         <div class="container">
           <h4>
             <b>{{ character.name }}</b>
           </h4>
-          <img v-if="character.house == 'Gryffindor'" src="src/assets/gryffindorLogo.png"/>
-          <img v-if="character.house == 'Slytherin'" src="src/assets/slytherinLogo.png"/>
-          <img v-if="character.house == 'Hufflepuff'" src="src/assets/hufflepuffLogo.png"/>
-          <img v-if="character.house == 'Gryffindor'" src="src/assets/ravenclawLogo.png"/>
+          <img v-if="character.house == 'Gryffindor'" src="../assets/gryffindorLogo.png" style="width: 5%"/>
+          <img v-else-if="character.house == 'Slytherin'" src="../assets/slytherinLogo.png" style="width: 5%"/>
+          <img v-else-if="character.house == 'Hufflepuff'" src="../assets/hufflepuffLogo.png" style="width: 5%"/>
+          <img v-else-if="character.house == 'Gryffindor'" src="../assets/ravenclawLogo.png" style="width: 5%"/>
         </div>
       </div>
     </div>
@@ -34,6 +36,7 @@ export default {
   data() {
     return {
       characters: null,
+      selection: null,
     };
   },
 
