@@ -1,16 +1,16 @@
 <template>
   <div class="characterList">
-    <h1>{{ msg }}</h1>
+    <h1>Characters</h1>
     <p>List of all characters in Harry Potter movies and books.</p>
 
-    <div id="list">
+    <div v-for="character in characters" id="list">
       <div class="card">
-        <img src={{image}} alt="Image" style="width: 100%" />
+        <img src={{ character.image }} alt="Image" style="width: 100%" />
         <div class="container">
           <h4>
-            <b>{{ name }}</b>
+            <b>{{ character.name }}</b>
           </h4>
-          <p>More</p>
+          <a>Moreless</a>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import axios from axios;
+//import axios from axios;
 const apiURLCharacters = "https://hp-api.onrender.com/api/characters";
 export default {
   name: "characterList",
@@ -28,11 +28,12 @@ export default {
   data() {
     return {
       characters: null,
+      config: {}
     };
   },
 
   created: function () {
-    this.startFetchDataAsync();
+    this.fetchDataAsync();
   },
 
   watch: {
@@ -42,26 +43,11 @@ export default {
   methods: {
     fetchDataAsync: async function () {
       try {
-        const responseType = await axios.get(
-          apiURLType + this.currentType,
+        const responseChar = await axios.get(
+          apiURLCharacters,
           config
         );
-        console.log(responseType.data);
-        this.lieuxParType = responseType.data.facet_groups[1].facets;
-        this.recordsParType = responseType.data.records;
-        // console.log(self.commits[0].html_url);
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    startFetchDataAsync: async function () {
-      try {
-        const responseDechets = await axios.get(apiURLCharacters, config);
-        console.log(responseType.data);
-        this.dechets = responseDechets.data.facet_groups[0].facets;
-        this.lieuxParType = responseType.data.facet_groups[1].facets;
-        this.recordsParType = responseType.data.records;
-        // console.log(self.commits[0].html_url);
+        this.characters = responseType.data[0];
       } catch (error) {
         console.log(error);
       }
@@ -79,3 +65,23 @@ export default {
   },
 }
 </script>
+
+
+
+<style>
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+</style>
