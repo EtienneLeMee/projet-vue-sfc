@@ -6,7 +6,7 @@
     <Nav/>
   </div>
   <div class="detail">
-    <characterDetails character={{ characterName }}/>
+    <characterDetails :character=characterName />
   </div>
   <p>{{ character }}</p>
 </template>
