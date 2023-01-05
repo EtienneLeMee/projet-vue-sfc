@@ -4,7 +4,7 @@
     <p>List of all characters in Harry Potter movies and books.</p>
 
     <div v-for="character in characters" id="list">
-      <div class="card">
+      <div class="card" v-on:click="getDetail(character.name)">
         <img v-if="character.image!==''" :src=character.image alt="Image" style="width: 30%" />
         <img v-if="character.image=='' && character.gender=='male'" src="../assets/wizzard.png" alt="Image" style="width: 30%" />
         <img v-if="character.image=='' && character.gender=='female'" src="../assets/wizzardfemale.png" alt="Image" style="width: 30%" />
@@ -56,6 +56,9 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    },
+    getDetail: function (name) {
+      this.$emit('characterName', name)
     },
     formattedMessage: function (message) {
       const newline = message.indexOf("\n");

@@ -24,7 +24,7 @@
     }
   }
 
-  window.onload=function(){
+  /*window.onload=function(){
     let background = document.getElementById('background')
     background.addEventListener("mouseover", (event) => {
             document.getElementById('legend').style.transform = 'translate(0px)';
@@ -33,7 +33,7 @@
     background.addEventListener("mouseout", (event) => {
             document.getElementById('legend').style.transform = 'translate(-205px)';
     });
-  }
+  }*/
   
   </script>
   
