@@ -6,7 +6,7 @@
     <Nav/>
   </div>
   <div class="detail">
-    <characterDetails :character=characterName />
+    <characterDetails @characterNameReset="CharacterNameReset" :character=characterName />
   </div>
   <p>{{ character }}</p>
 </template>
@@ -32,7 +32,12 @@ export default {
   methods: {
     GetCharacterName: function(name) {
       this.characterName = name
-      document.getElementById('list').style.display = 'none'
+      document.getElementById('list').style.display = 'none';
+      document.getElementById('detail').style.display = 'block';
+    },
+    CharacterNameReset: function() {
+      this.characterName = ""
+      document.getElementById('list').style.display = 'block';
     }
   }
 }
