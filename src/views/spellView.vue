@@ -20,3 +20,12 @@ export default {
   }
 }
 </script>
+
+<style>
+nav {
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    margin-right: 40px;
+  }
+</style>

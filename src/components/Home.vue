@@ -2,7 +2,6 @@
     <div class="wrapper">
         <img alt="Background Image" class="background" id="background" src="../assets/background.png">
         <div class="hero-wrapper">
-            <p class="legend" id="legend">This image has been created by DallE (AI) especially for this website !</p>
             <div class="text">
                 <p class="subtitle">The best Harry Potter wiki online !</p>
                 <p class="title">Welcome to <b>Hogwarts</b></p>
@@ -13,7 +12,6 @@
             </div>
         </div>
     </div>
-    
   </template>
   
   <script>
@@ -24,18 +22,10 @@
     }
   }
 
-  /*window.onload=function(){
-    let background = document.getElementById('background')
-    background.addEventListener("mouseover", (event) => {
-            document.getElementById('legend').style.transform = 'translate(0px)';
-    });
 
-    background.addEventListener("mouseout", (event) => {
-            document.getElementById('legend').style.transform = 'translate(-205px)';
-    });
-  }*/
   
   </script>
+  
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
@@ -116,17 +106,6 @@
         background-color: black;
         color: white;
     } 
-    
-    .legend {
-        position: absolute;
-        top: 0;
-        margin-top: 100px;
-        width: 200px;
-        font-size: 12px;
-        align-self: flex-start;
-        margin-left: 20px;
-        transition: all 0.3s ease-in-out;
-        transform: translateX(-205px);
-    }
+
   </style>
   

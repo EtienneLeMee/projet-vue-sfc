@@ -59,7 +59,8 @@ export default {
   all: unset;
 }
   .wrapper {
-    width: 100vw;
+    width: 98vw;
+    height: auto;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -71,23 +72,44 @@ export default {
     margin-top: 100px;
     width: 90vw;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     column-gap: 10px;
     row-gap: 10px;
+    margin-bottom: 50px;
   }
 
   .list {
-    width: 200px;
-    height: 130px;
+    width: 250px;
+    height: 180px;
     background-color: rgb(230, 230, 230);
     position: relative;
+    padding: 5px;
   }
 
-  .card {
-    
+  .name {
+
   }
 
   .desc {
     font-size: 10px;
+    color: grey;
+  }
+
+  @media (max-width: 1350px) {
+    .container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .container {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 </style>

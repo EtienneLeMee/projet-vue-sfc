@@ -1,11 +1,11 @@
 <template>
-  <div class="list" id="list">
+  <div class="list" id="list" v-bind:class="{ active: !isDetail }">
     <characterList @characterName="GetCharacterName"/>
   </div>
   <div class="nav">
     <Nav/>
   </div>
-  <div class="detail">
+  <div class="detail" v-bind:class="{ active: isDetail }">
     <characterDetails @characterNameReset="CharacterNameReset" :character=characterName />
   </div>
   <p>{{ character }}</p>
@@ -22,6 +22,7 @@ export default {
   data() {
     return {
         characterName: '',
+        isDetail: false,
     };
   },
   components: {
@@ -31,13 +32,15 @@ export default {
   },
   methods: {
     GetCharacterName: function(name) {
+      this.isDetail = true
       this.characterName = name
-      document.getElementById('list').style.display = 'none';
-      document.getElementById('detail').style.display = 'block';
+      /*document.getElementById('list').style.display = 'none';
+      document.getElementById('detail').style.display = 'block';*/
     },
     CharacterNameReset: function() {
+      this.isDetail = false
       this.characterName = ""
-      document.getElementById('list').style.display = 'block';
+      //document.getElementById('list').style.display = 'block';
     }
   }
 }
@@ -48,16 +51,22 @@ export default {
     position: absolute;
     z-index: 3;
     right: 0;
+    margin-right: 40px;
   }
 
   .list {
     position: absolute;
+    display: none;
     
   }
 
   .detail {
     position: absolute;
+    display: none;
   }
 
+  .active {
+    display: block;
+  }
 
 </style>

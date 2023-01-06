@@ -29,6 +29,7 @@ export default {
     position: absolute;
     z-index: 3;
     right: 0;
+    margin-right: 40px;
   }
 
   .home {
