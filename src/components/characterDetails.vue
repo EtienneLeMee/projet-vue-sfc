@@ -3,7 +3,9 @@
     <h1>{{ character }}</h1>
     <template v-for="characterSearch in allCharacters">
       <template v-if="characterSearch.name === character">
-        <img class="character image" :src="characterSearch.image" alt="nothing">
+        <img v-if="characterSearch.image!==''" :src="characterSearch.image" alt="Image" class="character image" />
+        <img v-if="characterSearch.image=='' && characterSearch.gender=='male'" src="../assets/wizzard.png" alt="Image" class="character image" />
+        <img v-if="characterSearch.image=='' && characterSearch.gender=='female'" src="../assets/wizzardfemale.png" alt="Image" class="character image" />
         <h2>General</h2>
         <p>Name : </p><input type="text" v-model="characterSearch.name" disabled>
         <p>Species : </p><input type="text" v-model="characterSearch.species" disabled>
