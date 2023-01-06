@@ -13,8 +13,9 @@
 
 <script>
 // @ is an alias to /src
-import characterList from '@/components/characterList.vue'
+
 import Nav from '@/components/Nav.vue'
+import characterList from '@/components/characterList.vue'
 import characterDetails from '@/components/characterDetails.vue'
 
 export default {
