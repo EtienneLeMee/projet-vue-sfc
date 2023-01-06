@@ -33,6 +33,11 @@
   a {
     all: unset;
   }
+
+  * {
+    font-family: 'Merriweather', serif;
+
+  }
     .wrapper {
         width: 100vw;
         height: 100vh;

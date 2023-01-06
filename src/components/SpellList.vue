@@ -1,4 +1,6 @@
 <template>
+  <p class="title">Spells</p><br>
+  <p class="desc2">List of all spells in Harry Potter movies and books.</p>
     <div class="wrapper">
       <div class="container">
         <div v-for="spell in spells" id="list" class="list">
@@ -79,11 +81,12 @@ export default {
   }
 
   .list {
-    width: 250px;
-    height: 180px;
-    background-color: rgb(230, 230, 230);
+    width: 230px;
+    height: 160px;
+    background-color: rgb(246, 246, 246);
     position: relative;
-    padding: 5px;
+    padding: 10px;
+    border-radius: 20px;
   }
 
   .name {
@@ -94,6 +97,27 @@ export default {
     font-size: 10px;
     color: grey;
   }
+
+  .title {
+    position: absolute;
+  margin-top: 40px;
+  margin-left: 100px;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+}
+
+.desc2 {
+  position: absolute;
+  width: 400px;
+  margin-top: 50px;
+  margin-left: 100px;
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #4C308B;
+}
 
   @media (max-width: 1350px) {
     .container {
